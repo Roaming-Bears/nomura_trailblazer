@@ -22,6 +22,13 @@ const getApi = (url: string, onData: (data: any) => void, onError: (err: Error) 
         onFinal()
         return 
     } 
+
+    if (url == "/api/portfolio/cyc") {
+        onData(["APPL"])
+        onFinal()
+        return
+    }
+    
     fetch(be_url + url)
         .then(response => response.json())
         .then(data => onData(data))
