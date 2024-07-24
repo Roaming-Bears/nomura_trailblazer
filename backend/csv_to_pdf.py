@@ -23,7 +23,7 @@ def fin_news_to_pdf(fin_news):
     pdf.set_auto_page_break(True, margin=margin_bottom_mm)
     pdf.add_page()
 
-    for _, row in tqdm(fin_news.iterrows(), desc="Converting fin_news csv to pdf doc"):
+    for _, row in tqdm(fin_news.iterrows(), desc=f"Converting fin_news csv to pdf doc (total: {len(fin_news)})"):
         pdf.set_font(family='Courier', size=fontsize_pt)
 
         date = str(row["date"])[:10]
@@ -35,7 +35,8 @@ def fin_news_to_pdf(fin_news):
             pdf.cell(0, fontsize_mm, line, ln=1)
         pdf.cell(0, fontsize_mm, "", ln=1)  # newline
 
-    pdf.output("./pdf_outputs/fin_data.pdf", "F")
+    pdf.output("./pdf_outputs/fin_news.pdf", "F")
+    print("fin_news pdf completed")
 
 def gen_news_to_pdf(gen_news):
     a4_width_mm = 210
@@ -51,7 +52,7 @@ def gen_news_to_pdf(gen_news):
     pdf.set_auto_page_break(True, margin=margin_bottom_mm)
     pdf.add_page()
 
-    for _, row in tqdm(gen_news.iterrows(), desc="Converting gen_news csv to pdf doc"):
+    for _, row in tqdm(gen_news.iterrows(), desc=f"Converting gen_news csv to pdf doc (total: {len(gen_news)})"):
         pdf.set_font(family='Courier', size=fontsize_pt)
 
         date = str(row["pubDate"])[5:16]
@@ -64,8 +65,9 @@ def gen_news_to_pdf(gen_news):
         pdf.cell(0, fontsize_mm, "", ln=1)  # newline
 
     pdf.output("./pdf_outputs/gen_news.pdf", "F")
+    print("gen_news pdf completed")
 
 
 fin_news_to_pdf(fin_news)
-gen_news_to_pdf(gen_news)
+#gen_news_to_pdf(gen_news)
 
