@@ -41,7 +41,7 @@ const ChatMessage = ({isLastMessage, message}: ChatMessageProps) => {
 			) : (
 				<PersonIcon />
 			)}
-			<p className="chat__message">
+			<div className="chat__message">
 				<span className="header__text chat__person">
 					{userDetails.username === user.username ? 'You' : user.username}
 				</span>
@@ -50,7 +50,7 @@ const ChatMessage = ({isLastMessage, message}: ChatMessageProps) => {
 						? <Spin />
 						: <>{content}</>
 				}
-			</p>
+			</div>
 		</div>
 		<span className="chat__timestamp">{createdAt.toString()}</span>
 	</div>
@@ -71,7 +71,7 @@ const Chat = ({ user }: ChatProps) => {
 			resolve("Hello! This is Stocker, your friendly neighbour trade recommender."))
 	}
 	] as MessagePopulated[]);
-	
+
 	const setRef = useCallback((node) => {
 		if (node) {
 			node.scrollIntoView({ smooth: true });

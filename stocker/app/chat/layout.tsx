@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./../globals.css";
 import Layout from "antd/es/layout/layout";
-import Header from "./components/header"
+import Header from "./../components/header"
 import { Content } from "antd/es/layout/layout";
-import Footer from "./components/Footer";
+import Footer from "./../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +18,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
+  
   return (
-    <html lang="en">
-      <body className="flex min-h-screen">
-      <Layout>
+    <>
+      <Header />
+      <Content style={{ padding: '0 48px' }}>
         <div
           style={{
             minHeight: 280,
@@ -31,8 +31,8 @@ export default function RootLayout({
         >
           {children}
         </div>
-      </Layout>
-      </body>
-    </html>
+      </Content>
+      <Footer />
+    </>
   );
 }
