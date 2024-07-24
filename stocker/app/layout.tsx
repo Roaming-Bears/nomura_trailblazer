@@ -3,9 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "antd/es/layout/layout";
 import Header from "./components/header"
-import { Content, Footer } from "antd/es/layout/layout";
-import { Button } from "antd";
-import { WechatOutlined } from "@ant-design/icons";
+import { Content } from "antd/es/layout/layout";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en">
       <body className="flex min-h-screen">
@@ -37,9 +35,7 @@ export default function RootLayout({
             {children}
           </div>
         </Content>
-        <Footer style={{ position: "fixed", bottom: 0, width: "100%", textAlign: 'right' }}>
-          <Button><WechatOutlined /></Button>
-        </Footer>
+        <Footer />
       </Layout>
       </body>
     </html>

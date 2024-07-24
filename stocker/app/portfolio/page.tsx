@@ -5,7 +5,7 @@ import StockCard from "../components/StockCard";
 import { getApi } from "../api";
 import { Spin } from "antd";
 
-const Stock: React.FC<{}> = () => {
+const Portfolio: React.FC<{}> = () => {
   const [stocks, setStocks] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -26,4 +26,4 @@ const Stock: React.FC<{}> = () => {
   );
 };
 
-export default Stock;
+export default Portfolio;

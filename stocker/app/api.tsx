@@ -28,7 +28,22 @@ const getApi = (url: string, onData: (data: any) => void, onError: (err: Error) 
         onFinal()
         return
     }
+
+    if (url == "stocker/chat") {
+        onData("Hello! This is Stocker, your friendly neighbour trade recommender.")
+        onFinal()
+        return
+    }
     
+    if (url == "stocker/cat") {
+        fetch("https://catfact.ninja/fact")
+            .then(response => response.json())
+            .then(data => onData(data.fact))
+            .catch(error => onError(error))
+            .finally(onFinal);
+        return
+    }
+
     fetch(be_url + url)
         .then(response => response.json())
         .then(data => onData(data))
