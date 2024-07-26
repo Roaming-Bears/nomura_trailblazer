@@ -26,7 +26,6 @@ export default function RootLayout({
         <div
           style={{
             minHeight: 280,
-            padding: 24,
           }}
         >
           {children}

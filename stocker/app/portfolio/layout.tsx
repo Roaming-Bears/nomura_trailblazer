@@ -25,10 +25,7 @@ export default function RootLayout({
       <Content style={{ padding: '0 48px' }}>
         <div
           style={{
-            // background: colorBgContainer,
             minHeight: 280,
-            padding: 24,
-            // borderRadius: borderRadiusLG,
           }}
         >
           {children}

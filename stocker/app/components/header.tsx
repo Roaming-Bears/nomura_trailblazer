@@ -4,6 +4,8 @@ import { Header as AntdHeader } from "antd/es/layout/layout";
 import { useRouter } from 'next/navigation'
 import Menu from "antd/es/menu";
 import Link from "antd/es/typography/Link";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 const Header: React.FC<{}> = () => {
   const router = useRouter()
@@ -22,6 +24,7 @@ const Header: React.FC<{}> = () => {
         items={items}
         style={{ flex: 1, minWidth: 0 }}
         />
+        <Avatar icon={<UserOutlined />} />
     </AntdHeader>
     );
   };
